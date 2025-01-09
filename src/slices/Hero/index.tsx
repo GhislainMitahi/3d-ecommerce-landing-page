@@ -9,7 +9,9 @@ import gsap from "gsap";
 import { Bounded } from "@/components/Bounded";
 import Button from "@/components/Button";
 import { TextSplitter } from "@/components/TextSplitter";
+import { View } from "@react-three/drei";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Scene from "./Scene";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -76,8 +78,9 @@ scrollTl
   stagger: .1,
   ease: "back.out(3)",
   duration: 0.5,
-}).from(".text-side-body", {
-  y: 20,
+})
+.from(".text-side-body", {
+  y: 10,
   opacity: 0,
 })
 
@@ -98,6 +101,11 @@ scrollTl
       data-slice-variation={slice.variation}
       className="hero opacity-0"
     >
+
+<View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] h-screen w-screen">
+  <Scene/>
+</View>
+
       <div className="grid">
 <div className="grid h-screen place-items-center">
 <div className="grid auto-rows-min place-items-center text-center">
